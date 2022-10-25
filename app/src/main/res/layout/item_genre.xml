@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="12dp"
+    android:layout_marginStart="12dp"
+
+
+    >
+
+<!--    <TextView-->
+<!--        android:id="@+id/btnGetTicket"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="10sp"-->
+<!--        tools:text="Thriller"-->
+<!--        android:layout_margin="3dp"-->
+<!--        -->
+<!--        />-->
+<!--    -->
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/tvGenre"
+        tools:text="Thriller"
+        android:fontFamily="sans-serif"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge"
+        android:backgroundTint="@color/ivory"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
