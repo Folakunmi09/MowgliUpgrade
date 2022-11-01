@@ -27,4 +27,37 @@
         <item name="cornerSizeBottomRight">0dp</item>
 
     </style>
+
+    <style name="DateCustomCardCorners" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance_custom_corners_date</item>
+    </style>
+
+    <style name="ShapeAppearance_custom_corners_date" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+
+    </style>
+
+    <style name="AppOutlinedButton" parent="@style/Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/ivory</item>
+    </style>
+
+    <style name="DateOutlineCard" parent="@style/Widget.Material3.CardView.Outlined">
+        <item name="android:textColor">@color/ivory</item>
+        <item name="strokeColor">@color/ivory</item>
+    </style>
+
+
+    <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <!-- Apply attributes here -->
+    </style>
+
+    <style name="ModalBottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
+    </style>
+
+
 </resources>

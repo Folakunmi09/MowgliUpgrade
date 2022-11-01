@@ -40,6 +40,7 @@ public class Movie {
         overview = jsonObject.getString("overview");//movie's description
         rating = jsonObject.getDouble("vote_average");
         movieId = jsonObject.getInt("id");
+        genres = new ArrayList<>();
     }
 
     public static List<Movie> fromJsonArray(JSONArray jsonArray) throws JSONException {
@@ -120,4 +121,17 @@ public class Movie {
     public double getRating(){ return rating; }
 
     public int getMovieId(){ return movieId; }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "movieId=" + movieId +
+                ", backdropPath='" + backdropPath + '\'' +
+                ", posterPath='" + posterPath + '\'' +
+                ", title='" + title + '\'' +
+                ", overview='" + overview + '\'' +
+                ", genres=" + genres +
+                ", rating=" + rating +
+                '}';
+    }
 }

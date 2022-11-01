@@ -56,16 +56,12 @@
         app:layout_constraintTop_toBottomOf="@id/btnPlayTrailer"
         >
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="90dp"
-            android:scrollbars="none">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="90dp"
                 >
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -122,54 +118,110 @@
                         tools:text="8.5"
                         android:textSize="14sp"
                         />
-
-
-
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/dtTvOverview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textview"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    tools:text="Travis Block is a shadowy Government agent who specializes in removing operatives whose covers have been exposed. He then has to uncover a deadly conspiracy within his own ranks that reaches the highest echelons of power."
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:text="Cast"
-                    android:fontFamily="sans-serif-medium"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginEnd="3dp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginTop="30dp">
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/rvCast"
+                        android:id="@+id/rvDates"
                         />
                 </LinearLayout>
 
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/btnNineAM"
+                            android:text="9:00 am"
+                            android:fontFamily="sans-serif"
+                            android:textSize="17sp"
+                            android:textColor="@color/ivory"
+                            android:layout_marginStart="5dp"
+                            style="@style/AppOutlinedButton"
+
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/btnNoon"
+                            android:text="12:00 pm"
+                            android:fontFamily="sans-serif"
+                            android:textSize="17sp"
+                            android:textColor="@color/ivory"
+                            android:layout_marginStart="12dp"
+                            style="@style/AppOutlinedButton"
+
+
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/btnFour"
+                            android:text="4:00 pm"
+                            android:fontFamily="sans-serif"
+                            android:textSize="17sp"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="12dp"
+                            style="@style/AppOutlinedButton"
+
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/btnSeven"
+                            android:text="7:00 pm"
+                            android:fontFamily="sans-serif"
+                            android:textSize="17sp"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="12dp"
+                            style="@style/AppOutlinedButton"
+
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/btnTen"
+                            android:text="10:00 pm"
+                            android:fontFamily="sans-serif"
+                            android:textSize="17sp"
+                            android:textColor="@color/ivory"
+                            android:layout_marginStart="12dp"
+                            style="@style/AppOutlinedButton"
+                            />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+
             </LinearLayout>
-        </ScrollView>
+
 
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnGetTicket"
+        android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:backgroundTint="@color/navy_blue"
@@ -177,7 +229,7 @@
 
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:text="@string/get_ticket"
+        android:text="Confirm Booking"
 
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"

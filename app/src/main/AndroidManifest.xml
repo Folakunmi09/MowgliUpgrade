@@ -25,6 +25,10 @@
         <activity
             android:name=".DetailActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".TicketingActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
