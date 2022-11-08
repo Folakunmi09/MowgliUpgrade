@@ -171,8 +171,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGetTicket"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:backgroundTint="@color/violet_AE8"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/navy_blue"
         app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge"
 
         android:textSize="20sp"

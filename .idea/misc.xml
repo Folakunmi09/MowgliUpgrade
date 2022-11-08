@@ -3,14 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_detail.xml" value="0.1" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_detail.xml" value="0.22" />
         <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_detail_tmp.xml" value="0.1" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_forgot_password.xml" value="0.21" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_login.xml" value="0.21" />
         <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_sign_up.xml" value="0.21" />
         <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_ticketing.xml" value="0.1" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/activity_view_reservations.xml" value="0.1" />
         <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/item_cast.xml" value="0.67" />
-        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/item_date.xml" value="0.1" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/item_date.xml" value="0.5" />
         <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/item_genre.xml" value="0.33" />
         <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/item_movie.xml" value="0.1" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/item_reservation.xml" value="0.25" />
+        <entry key="..\:/Users/kfola/AndroidStudioProjects/MowgliUpgrade/app/src/main/res/layout/tmp.xml" value="0.2418478260869565" />
       </map>
     </option>
   </component>

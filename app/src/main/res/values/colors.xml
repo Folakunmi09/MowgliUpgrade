@@ -8,6 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="cyan_ac5">#FF03DAC5</color>
+    <color name="cyan_786">#FF018786</color>
+    <color name="aqua">#FF00ffff</color>
+    <color name="aqua_5e5">#FF00e5e5</color>
+    <color name="aqua_ccc">#FF00cccc</color>
+
     <color name="navy_blue">#000C66</color>
     <color name="dark_blue_A30">#050A30</color>
     <color name="dark_blue_472">#274472</color>
@@ -18,6 +24,18 @@
     <color name="gray_444">#444444</color>
     <color name="gray_474">#747474</color>
     <color name="pewter_1B1">#B1B1B1</color>
+
+    <color name="blue_gray_9CC">#6699CC</color>
+    <color name="blue_gray_BA1">#366BA1</color>
+    <color name="midnight_blue_29F">#41729F</color>
+    <color name="midnight_blue_DAO">#145DA0</color>
+    <color name="blue_gray_5AF">#5885AF</color>
+
+    <color name="violet_AE8">#A16AE8</color>
+    <color name="periwinkle_9FE">#A1A9FE</color>
+    <color name="cornflower_4E3">#82A4E3</color>
+
+
 
 
 
