@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mowgliupgrade.R;
+import com.example.mowgliupgrade.ReservationDetailActivity;
 import com.example.mowgliupgrade.models.MovieShowing;
 import com.example.mowgliupgrade.models.Reservation;
 
@@ -77,7 +78,10 @@ public class ReservationAdapter extends RecyclerView.Adapter<ReservationAdapter.
             if (movieShowing != null) {
                 if (movieShowing.getMovie() != null) {
                     tvTitle.setText(movieShowing.getMovie().getTitle());
-                    tvOrderNumber.setText("#" + reservation.getReservationId().substring(1, 9));
+                    if (reservation.getReservationId().length() > 9)
+                        tvOrderNumber.setText("#" + reservation.getReservationId().substring(1, 9));
+                    else
+                        tvOrderNumber.setText("#" + reservation.getReservationId());
 
                     String runtime = movieShowing.getMovie().getRunTime() + " mins";
                     tvRuntime.setText(runtime);
@@ -90,19 +94,19 @@ public class ReservationAdapter extends RecyclerView.Adapter<ReservationAdapter.
 
                     Glide.with(context).load(movieShowing.getMovie().getPosterPath()).into(ivPoster);
 
-                    //todo: show full movie detail when user clicks on a reservation
-//                    reservationContainer.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            //Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
-//
-//
-//                            //Intent- First parameter is the context; second is the class of the activity to launch
-//                            Intent i = new Intent(context, ReservationDetailActivity.class);
-//                            i.putExtra("reservation", Parcels.wrap(reservation));
-//                            context.startActivity(i); //Brings up second activity
-//                        }
-//                    });
+
+                    reservationContainer.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
+
+
+                            //Intent- First parameter is the context; second is the class of the activity to launch
+                            Intent i = new Intent(context, ReservationDetailActivity.class);
+                            i.putExtra("reservation", Parcels.wrap(reservation));
+                            context.startActivity(i); //Brings up second activity
+                        }
+                    });
                 }
 
             }

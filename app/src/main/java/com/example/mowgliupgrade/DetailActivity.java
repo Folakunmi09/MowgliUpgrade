@@ -90,7 +90,6 @@ public class DetailActivity extends YouTubeBaseActivity {
         rvCast.setAdapter(castAdapter);
         rvCast.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        // TODO: Redirect to ticketing when btnGetTicket is clicked
         btnGetTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

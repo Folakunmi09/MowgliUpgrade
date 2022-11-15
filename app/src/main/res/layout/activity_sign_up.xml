@@ -23,20 +23,6 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bannerDescription"
-        android:text="@string/insert_description_here"
-        android:textStyle="italic"
-        android:textSize="18sp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/banner"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-
     <EditText
         android:id="@+id/username"
         android:layout_width="380dp"
@@ -52,7 +38,7 @@
         android:padding="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bannerDescription"
+        app:layout_constraintTop_toBottomOf="@id/banner"
         />
 
     <EditText

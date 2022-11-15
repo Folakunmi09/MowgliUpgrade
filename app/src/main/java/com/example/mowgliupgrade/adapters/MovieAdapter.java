@@ -79,36 +79,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
         public void bind(Movie movie) {
             tvTitle.setText(movie.getTitle());
-//            tvOverview.setText(movie.getOverview());
             String imageUrl;
-
-            // Set it to the backdrop url if it's in landscape
-//            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-//                imageUrl = movie.getBackdropPath();
-//            }else {
-//                //Set imageUrl to posterPath if image is in portrait orientation.
-//                imageUrl = movie.getPosterPath();
-//            }
             imageUrl = movie.getPosterPath();
 
 
 
             Glide.with(context).load(imageUrl).into(ivPoster);
-            //Making use of Glide cause there's no way to directly load remote
-            // images from android studio yet
-
-//            Whenever the user clicks on a movie title, we want to show them more details about the movie
-//            1.  we need to create a way to know when the click on a movie title first
-//            - Register click listener on the whole row
             itemContainer.setOnClickListener(new View.OnClickListener()  {
                 @Override
                 public void onClick(View v) {
-                    //Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
-
-
-                    //Intent- First parameter is the context; second is the class of the activity to launch
                     Intent i = new Intent(context, DetailActivity.class);
-//                  i.putExtra("title", movie.getTitle());
                     i.putExtra("movie", Parcels.wrap(movie));
                     context.startActivity(i); //Brings up second activity
                 }

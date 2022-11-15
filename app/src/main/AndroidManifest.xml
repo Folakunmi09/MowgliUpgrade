@@ -14,7 +14,8 @@
         android:theme="@style/Theme.MowgliUpgrade">
         <activity
             android:name=".MainActivity"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/Theme.MowgliUpgrade.ActionBar">
         </activity>
 
         <activity
@@ -27,7 +28,13 @@
 
         <activity
             android:name=".ViewReservationsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MowgliUpgrade.ActionBar"/>
+
+        <activity
+            android:name=".ReservationDetailActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />

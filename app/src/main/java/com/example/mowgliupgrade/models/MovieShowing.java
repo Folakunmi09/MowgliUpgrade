@@ -84,6 +84,7 @@ public class MovieShowing {
     public int getPurchasedTickets(){
         return purchasedTickets;
     }
+
     public void updateTicketCount(int tickets) {
         this.purchasedTickets += tickets;
         this.availableTickets -= tickets;

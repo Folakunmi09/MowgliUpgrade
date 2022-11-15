@@ -28,6 +28,7 @@ import com.example.mowgliupgrade.models.Reservation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.slider.Slider;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -64,11 +65,14 @@ public class TicketingActivity extends YouTubeBaseActivity implements DateAdapte
 
     private ImageView ivPoster;
     private Button btnConfirm;
-    MaterialButton btnNine, btnNoon, btnFour, btnSeven, btnTen;
+    private MaterialButton btnNine, btnNoon, btnFour, btnSeven, btnTen;
     private TextView tvTitle, tvOverview, tvRating, tvRuntime;
     private RecyclerView rvGenres, rvCast, rvDates;
     private YouTubePlayerView youTubePlayerView;
+    private Slider ticketSlider;
 
+
+    int ticketCount = 1;
     List<String> genres;
     List<Cast> castList;
     List<Date> dates;
@@ -102,6 +106,8 @@ public class TicketingActivity extends YouTubeBaseActivity implements DateAdapte
         btnFour = findViewById(R.id.btnFour);
         btnSeven = findViewById(R.id.btnSeven);
         btnTen = findViewById(R.id.btnTen);
+
+        ticketSlider = findViewById(R.id.ticketNumSlider);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         movieShowingDatabase = FirebaseDatabase.getInstance().getReference("MovieShowings");
@@ -243,6 +249,14 @@ public class TicketingActivity extends YouTubeBaseActivity implements DateAdapte
             }
         });
 
+        ticketSlider.addOnChangeListener(new Slider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+                ticketCount = (int) value;
+            }
+        });
+
+
 
 
 
@@ -264,7 +278,8 @@ public class TicketingActivity extends YouTubeBaseActivity implements DateAdapte
             genreString = genres.get(0);
         else
             genreString = "";
-        movieShowing = new MovieShowing(movie, bookingDate, bookingTime, 10, genreString);
+        movieShowing = new MovieShowing(movie, bookingDate, bookingTime, 20
+                , genreString);
 
         movieShowingDatabase.child(movieShowing.getShowingId()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -272,9 +287,15 @@ public class TicketingActivity extends YouTubeBaseActivity implements DateAdapte
                 if (task.isSuccessful()) {
                     MovieShowing mShowing = task.getResult().getValue(MovieShowing.class);
                     if (mShowing != null) {
-//                        //        TODO: Have counter(UI & functionality) to allow users buy multiple tickets and check limit
-//
-                        mShowing.updateTicketCount(1);
+                        if (ticketCount > mShowing.getAvailableTickets()) {
+                            Toast.makeText(TicketingActivity.this, "Selected number of tickets unable. Failed to get tickets.", Toast.LENGTH_SHORT).show();
+                            ticketSlider.setValue(1);
+                        }
+                        else{
+                            mShowing.updateTicketCount(ticketCount);
+                            movieShowingDatabase.child(mShowing.getShowingId()).setValue(mShowing);
+                        }
+                        mShowing.updateTicketCount(ticketCount);
                         movieShowingDatabase.child(mShowing.getShowingId()).setValue(mShowing);
 //
                     }
@@ -282,6 +303,32 @@ public class TicketingActivity extends YouTubeBaseActivity implements DateAdapte
                         Log.d(TAG, String.valueOf(movieShowing));
                         movieShowingDatabase.child(movieShowing.getShowingId()).setValue(movieShowing);
                     }
+
+                    String reservationInfo = "1 ticket for " +
+                            movieShowing.getMovie().getTitle() + " at " + movieShowing.getShowTime() +
+                            ", " +  movieShowing.getShowDate() + " for " +
+                            currentUser.getEmail();
+
+                    Reservation reservation =
+                            new Reservation(
+                                    currentUser.getEmail(),
+                                    movieShowing,
+                                    ticketCount,
+                                    reservationInfo);
+
+                    reservationDatabase.child(currentUser.getUid()).child(reservation.getReservationId()).setValue(reservation).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "Reservation added to database");
+                                Toast.makeText(TicketingActivity.this, "Tickets reserved successfully.", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(TicketingActivity.this, ViewReservationsActivity.class));
+                            }else{
+                                Log.e(TAG, "Failed to add reservation to database");
+                                Toast.makeText(TicketingActivity.this, "Failed to book reservation!", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
                 }
                 else{
                     Log.d(TAG, "Failed to get movieShowing from database");
@@ -290,33 +337,7 @@ public class TicketingActivity extends YouTubeBaseActivity implements DateAdapte
             }
         });
 
-        String reservationInfo = "1 ticket for " +
-                movieShowing.getMovie().getTitle() + " at " + movieShowing.getShowTime() +
-                ", " +  movieShowing.getShowDate() + " for " +
-                currentUser.getEmail();
 
-        Reservation reservation =
-                new Reservation(
-                        currentUser.getEmail(),
-                        movieShowing,
-                        1,
-                        reservationInfo);
-
-        reservationDatabase.child(currentUser.getUid()).child(reservation.getReservationId()).setValue(reservation).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Log.d(TAG, "Reservation added to database");
-                    Toast.makeText(TicketingActivity.this, "Tickets reserved successfully.", Toast.LENGTH_LONG).show();
-                    //todo: send user confirmation email
-                    //todo: redirect user to bookings so they can view change
-                    startActivity(new Intent(TicketingActivity.this, ViewReservationsActivity.class));
-                }else{
-                    Log.e(TAG, "Failed to add reservation to database");
-                    Toast.makeText(TicketingActivity.this, "Failed to book reservation!", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
 
 
     }
